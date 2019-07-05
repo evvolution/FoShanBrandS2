@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" /> 
+<title>2019年品牌佛山第二期</title>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/mainstyle.css"/>
+</head>
+<body>
+    <div class="bannnar">
+        <img src="img/title.png" id="pagebannar" class="fspPIC">
+    </div>
+    <span class="floatplugin" id="showrules">
+        投<br/>票<br/>规<br/>则
+    </span>
+
+    <div class="container">
+
+<!--   <fieldset class="complexOrder">
+    <legend class="complexOrderNum">123</legend>
+  </fieldset> -->
+
+        <div class="row">
+            <div class="col-xs-8" id="progress-content">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-success active" style="width: 33.3%">
+                        <span>111</span>
+                    </div>
+                    <div class="progress-bar progress-bar-striped progress-bar-warning active" style="width: 33.4%">
+                        <span>222</span>
+                    </div>
+                    <div class="progress-bar progress-bar-striped progress-bar-danger active" style="width: 33.3%">
+                        <span>333</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-4">
+                <button class="btn btn-danger" id="showRanks" data-toggle="modal" data-target="#ranks">
+                    <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+                </button>
+                <button class="btn btn-success" id="confirmVote">投票</button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <a href="#" class="active" style="width:33%;"><p class="tabBanner">中国创新创造标杆的</p><p class="tabBanner-down">佛山企业品牌</p></a>
+            <a href="#" style="width:34%;"><p class="tabBanner">中国社会责任典范的</p><p class="tabBanner-down">佛山企业品牌</p></a>
+            <a href="#" style="width:33%;"><p class="tabBanner">最具成长性的</p><p class="tabBanner-down">佛山企业品牌</p></a>
+        </div>
+        <div id="tabs-container" class="swiper-container">
+            <div class="swiper-wrapper">              
+                <!-- tab页1 -->
+                <div class="swiper-slide">
+                    <br/>
+                    <ul class="list-group" id="s2-list-list1"></ul>
+                </div>
+                <!-- End of tab页1 -->
+                
+                <!-- tab页2 -->
+                <div class="swiper-slide">
+                    <br/>
+                    <ul class="list-group" id="s2-list-list2"></ul>
+                </div>
+                <!-- End of tab页2 -->
+
+                <!-- tab页3 -->
+                <div class="swiper-slide">
+                    <br/>
+                    <ul class="list-group" id="s2-list-list3"></ul>
+                </div>
+                <!-- End of tab页3 -->
+            </div>
+        </div>
+    </div>
+
+    <div id="s2-details-modal1"></div>
+    <div id="s2-details-modal2"></div>
+    <div id="s2-details-modal3"></div>
+
+<!-- modals -->
+    <div class="modal fade" id="introModal" tabindex="-1" role="dialog" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3>投票规则</h3>
+                    <h5 style="color:#188ae2;">请将阅读字体调整至标准大小<h5>
+                    <hr/>
+                    <div id="introcontent">
+                        <p><strong>投票时间</strong></p>
+                        <p class="introdetail">2019年7月11日至7月20日</p>
+                        <p><strong>投票规则</strong></p>
+                        <p class="introdetail">1、一个微信号每天只能投票两次；</p>
+                        <p class="introdetail">2、每个榜单至少选5个，最多选10个；</p>
+                        <p class="introdetail">3、必须同时对投票页面的所有榜单投票。</p>
+                        <p><strong>奖品设置</strong></p>
+                        <p class="introdetail">一等奖 华为P30手机（1名）</p>
+                        <p class="introdetail">二等奖 格兰仕UOVO系列微波炉（3名）</p>
+                        <p class="introdetail">三等奖 志高冷暖空调扇（15名）</p>
+                        <p class="introdetail">四等奖 凯仕乐足浴盆（25名）</p>
+                        <p><strong>活动简介</strong></p>
+                        <p class="introdetail" style="text-align:justify;">为加强佛山的产品品牌、企业品牌、区域品牌与消费者互动，推动佛山的产品品牌、企业品牌、区域品牌走向全国、全球，从2007年起由佛山传媒集团联合各单位主办“品牌佛山”系列活动，此项系列活动每两年一届，至今已成功举办六届。“品牌佛山”被誉为“佛山品牌经济奥斯卡大奖”，10年来吸引到数百家品牌企业参评、数十万名消费者踊跃投票，参评企业包括美的、碧桂园、蒙娜丽莎等一大批佛山支柱产业的龙头企业。“品牌佛山”系列活动已成为佛山传媒集团、佛山日报社实施媒政媒企媒众互动发展战略、佛山企业品牌向世界展示的大平台。</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div data-dismiss="modal" id="getedinfo" style="color:#188ae2;">我知道了</div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" id="votemodal" tabindex="-1" role="dialog" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="padding:0;">
+                    <div class="form-group">
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <img class="fspPIC" id="picExam" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1" style="color:#188ae2;">
+                                验证码为四位阿拉伯数字，不含字母
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-8 col-xs-offset-1">
+                                <input id="usersetcode" type="input" class="info form-control" placeholder="*请输入上图中的验证码"/>
+                            </div>
+                            <div class="col-xs-1">
+                                <button id="getnewcode"><span class="glyphicon glyphicon-repeat"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <input id="itemcodeID" style="display:none;"/>
+                </div>
+                <div class="modal-footer">
+                    <div class="infobtn" data-dismiss="modal" id="cancelinfo" onclick=clearWastedInfo('usersetcode')>取消</div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="infobtn" id="voteFinalConfrim" style="color:#188ae2;">确认投票</div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <div class="modal fade" id="getuserinfomodal" tabindex="-1" role="dialog" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="padding:0;">
+                    <div class="form-group" style="text-align:center;">
+                        <h4>信息登记</h4>
+                        <br/>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <input type="input" class="info form-control" placeholder="*姓名" id="username"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <input type="input" class="info form-control" placeholder="*手机号" id="userphone" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="infobtn" data-dismiss="modal" id="cancelinfo" onclick=giveUpAward()>放弃抽奖</div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="infobtn" id="uploadinfo-final" style="color:#188ae2;">参与抽奖</div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" id="ranks" tabindex="-1" role="dialog" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="padding:0;">
+                    <div class="form-group" style="text-align:center;">
+                        <h4 style="color:red">排行榜(当前票数前十名)</h4>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div id="mycarousel" class="carousel slide">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#mycarousel" data-slide-to="0" id="rankpoint1" class="active"></li>
+                                        <li data-target="#mycarousel" data-slide-to="1" id="rankpoint2"></li>
+                                    </ol>
+
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="item active" id="s1l1rank-content">
+                                            <div class="carousel caption" style="text-align:center;color:yellow"><big><strong>佛山市网信技术创新优秀品牌</strong></big></div>
+                                            <br/>
+                                            <table class="table" id="s1l1rank" style="text-align:left;">
+                                            </table>
+                                       </div>
+                                        <div class="item" id="s1l2rank-content">
+                                            <div class="carousel caption" style="text-align:center;color:yellow"><big><strong>佛山市服务贸易和外包领军企业品牌</strong></big></div>
+                                            <br/>
+                                            <table class="table" id="s1l2rank" style="text-align:left;">
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <!-- Controls -->
+                                    <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div data-dismiss="modal" style="color:#188ae2;">我知道了</div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/control.js"></script>
+
+</body>
+</body>
+</html>
