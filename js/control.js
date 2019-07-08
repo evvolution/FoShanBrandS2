@@ -11,17 +11,6 @@ var netlink = 'http://fs.foshanplus.com:8082';
 
 $(document).ready(function(){
 
-
-	function stopScrolling( touchEvent ) {   
-        touchEvent.preventDefault();   
-    }  
-    document.addEventListener( 'touchstart' , stopScrolling , false );  
-    document.addEventListener( 'touchmove' , stopScrolling , false ); 
-
-
-
-
-
 	//设置滚动条控件高度
 	setScrollheight();
 	//获取2期榜单内容
@@ -106,7 +95,7 @@ function get_S2_list(){
 				var s2listcontent = "";
 				var s2modalcontent = "";
 				for (var j = 0; j < data.projects[i].length; j++){
-					var head = '<li class="list-group-item">xx' + j;
+					var head = '<li class="list-group-item">' + j;
 					if(j == data.projects[i].length-1){
 						var tail = '</li><br/><div class="list-group-item btn btn-default confirmVote">投票</div><br/>';
 					}else {

@@ -149,24 +149,56 @@ input.fspCheckBox:focus{
     margin-bottom: 8px;
 }
 
+.confirmVote{
+	font-size: 20px;
+    width: 80%;
+    left: 35px;
+}
+/*************End of 投票列表项************/
 
 
 
-
-
-/*     悬浮挂件        */
-.floatplugin{
-    position: absolute;
-    float: left;
-    top: 30px;
-    left: 0px;
-    color: #fff;
-    background-color: #223a5e;
-    padding-left: 5px;
-    padding-right: 2px;
+/*****************悬浮挂件****************/
+.floatitems{
+	position: absolute;
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+    font-size: 16px;
+    padding: 10px;
+    outline: none;
+    border: 0px;
+    color: #ededed;
     z-index:1000;
 }
 
+#showAwards{
+    height: 45px;
+    width: 45px;
+    font-size: 21px;
+    padding: 11px;
+    float: left;
+    left: 10px;
+    top: 44px;
+    background-color: #b92c28;
+}
+
+#showRules{
+    float: right;
+    right: 20px;
+    top: 20px;
+    background-color: #223a5e;
+}
+
+#showRanks{
+    float: right;
+    right: 20px;
+    top: 70px;
+    background-color: #188ae2;
+}
+
+
+/*************End of 悬浮挂件************/
 
 /*costume modal*/
 .modal-dialog{
