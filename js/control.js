@@ -66,17 +66,19 @@ window.onload = function() {
 
 
 function setScrollheight(){
-	var availHeight = window.screen.availHeight;
-	var availwidth = window.screen.availwidth;
-	$(".list-group").css("height", availHeight*0.55);
-	$("#tabs-container").css("height", availHeight*0.6);
-	$("#s1l1rank-content").css("height", availHeight*0.4);
-	$("#s1l2rank-content").css("height", availHeight*0.4);
+	var availheight = window.screen.availHeight;
+	var availwidth = window.screen.availWidth;
 
-	if(availHeight < 700){
-		$("#introcontent").css("height", availHeight*0.42);
-	}else if(availHeight > 700){
-		$("#introcontent").css("height", availHeight*0.50);
+	$(".list-group").css("height", availheight*0.55);
+	$("#tabs-container").css("height", availheight*0.6);
+
+	$("#s1l1rank-content").css("height", availheight*0.4);
+	$("#s1l2rank-content").css("height", availheight*0.4);
+
+	if(availheight < 700){
+		$("#introcontent").css("height", availheight*0.42);
+	}else if(availheight > 700){
+		$("#introcontent").css("height", availheight*0.50);
 	}
 	
 }
@@ -95,10 +97,19 @@ function get_S2_list(){
 				var s2listcontent = "";
 				var s2modalcontent = "";
 				for (var j = 0; j < data.projects[i].length; j++){
-					var head = '<li class="list-group-item">' + j;
-
-
+					if((((i == 0) && ((j == 19) || (j == 45)))) || ((i == 1) && ((j == 25) || (j == 31) || (j == 33))) || ((i == 2) && ((j == 21) || (j == 34)))){
+						var head = '<li class="list-group-item" style="height:75px">';
+						var Num = '<p class="list-item-NumX">当前票数：' + data.projects[i][j].vote_count + '</p>';
+					}else{
+						var head = '<li class="list-group-item">';
+						var Num = '<p class="list-item-Num">当前票数：' + data.projects[i][j].vote_count + '</p>';
+					}
 					
+					var order = '<div class="list-item-order">' + (j+1) + '</div>';
+					var pic = '<div class="list-item-picholder"><img class="list-item-picholder-in" src="' + data.projects[i][j].pic_url + '?imageView2/2/w/100/h/80/format/jpg/interlace/1/q/90"/></div>';
+					var headx = '<div class="list-item-titleAndNumHolder">';
+					var title = '<p class="list-item-title">' + data.projects[i][j].title + '</p>';
+					var tailx = '</div>'
 					if(j == data.projects[i].length-1){
 						var tail = '</li><br/><div class="list-group-item btn btn-default confirmVote">投票</div><br/>';
 					}else {
@@ -106,7 +117,7 @@ function get_S2_list(){
 					}
 					
 
-					s2listcontent += (head + tail);
+					s2listcontent += (head + order + pic + headx + title + Num + tailx + tail);
 
 /*					var modalhead = '<div data-backdrop="static" class="modal fade" id="s2Info' + data.projects[0][i].id + '" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content">';
 					var modalbody = '<div class="modal-body" style="padding:0;"><div class="form-group" style="text-align:center;"><h4 style="color:#ffe200;">品牌介绍</h4><br/></div><div class="form-group"><div class="s1-details-modalcontent" style="text-align:justify;">' + data.projects[0][i].content + '</div></div></div><div class="modal-footer"><div style="color:#188ae2;" data-dismiss="modal">关闭</div></div>'
