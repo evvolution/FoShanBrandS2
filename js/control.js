@@ -74,9 +74,9 @@ function setScrollheight(){
 	$("#s1l2rank-content").css("height", availHeight*0.4);
 
 	if(availHeight < 700){
-		$("#introcontent").css("height", availHeight*0.44);
+		$("#introcontent").css("height", availHeight*0.42);
 	}else if(availHeight > 700){
-		$("#introcontent").css("height", availHeight*0.53);
+		$("#introcontent").css("height", availHeight*0.50);
 	}
 	
 }
@@ -96,6 +96,9 @@ function get_S2_list(){
 				var s2modalcontent = "";
 				for (var j = 0; j < data.projects[i].length; j++){
 					var head = '<li class="list-group-item">' + j;
+
+
+					
 					if(j == data.projects[i].length-1){
 						var tail = '</li><br/><div class="list-group-item btn btn-default confirmVote">投票</div><br/>';
 					}else {
