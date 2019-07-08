@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="bannnar">
-        <img src="img/title.png" id="pagebannar" class="fspPIC">
+        <img src="img/title.png" id="pagebannar" class="fspPIC" style="width:85%;">
     </div>
     <span class="floatplugin" id="showrules">
         投<br/>票<br/>规<br/>则
@@ -19,69 +19,85 @@
 
     <div class="container">
 
-<!--   <fieldset class="complexOrder">
-    <legend class="complexOrderNum">123</legend>
-  </fieldset> -->
 
         <div class="row">
-            <div class="col-xs-8" id="progress-content">
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-success active" style="width: 33.3%">
-                        <span>111</span>
+            <div class="tabs">
+                <a href="#" class="active" style="width:33%;">
+                    <div id="tab1">
+                        <img class="fspPIC-tab" src="img/tab1.png"/>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemax="100" style="min-width:5px;width:0%;">
+                                <span id="tab1-state">0</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="progress-bar progress-bar-striped progress-bar-warning active" style="width: 33.4%">
-                        <span>222</span>
+                </a>
+                <a href="#" style="width:34%;">
+                    <div id="tab2">
+                        <img class="fspPIC-tab" src="img/tab2.png"/>
+                        <div class="progress" style="margin-top:-2px;">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemax="100" style="min-width:5px;width:0%;">
+                                <span id="tab2-state">0</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="progress-bar progress-bar-striped progress-bar-danger active" style="width: 33.3%">
-                        <span>333</span>
+                </a>
+                <a href="#" style="width:33%;">
+                    <div id="tab3">
+                        <img class="fspPIC-tab" src="img/tab3.png"/>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemax="100" style="min-width:5px;width:0%;">
+                                <span id="tab3-state">0</span>
+                            </div>
+                        </div>
                     </div>
+                </a>
+            </div>
+            <div id="tabs-container" class="swiper-container">
+                <div class="swiper-wrapper">              
+                    <!-- tab页1 -->
+                    <div class="swiper-slide">
+                        <div class="accordion" id="s2List1Accordion1">
+                            <br/>
+                            <!-- <div class="accordion-group" id="s2-list-list1"></div> -->
+                        </div>
+                    </div>
+                    <!-- End of tab页1 -->
+                    
+                    <!-- tab页2 -->
+                    <div class="swiper-slide">
+                        <div class="accordion" id="s2List2Accordion2">
+                            <br/>
+                            <!-- <div class="accordion-group" id="s2-list-list2"></div> -->
+                        </div>
+                    </div>
+                    <!-- End of tab页2 -->
+
+                    <!-- tab页3 -->
+                    <div class="swiper-slide">
+                        <div class="accordion" id="s2List3Accordion3">
+                            <br/>
+                            <!-- <div class="accordion-group" id="s2-list-list3"></div> -->
+                        </div>
+                    </div>
+                    <!-- End of tab页3 -->
                 </div>
             </div>
-
-            <div class="col-xs-4">
-                <button class="btn btn-danger" id="showRanks" data-toggle="modal" data-target="#ranks">
-                    <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
-                </button>
-                <button class="btn btn-success" id="confirmVote">投票</button>
-            </div>
+        </div>
+        <div class="row">
+            <!-- <div class="col-xs-12"> -->
+            <div class="btn btn-default col-xs-2 col-xs-offset-1" id="showRanks" data-toggle="modal" data-target="#ranks">排名</div>
+            <div class="btn btn-default col-xs-7 col-xs-offset-1" id="confirmVote">投票</div>
+            <!-- </div> -->
         </div>
 
-        <div class="tabs">
-            <a href="#" class="active" style="width:33%;"><p class="tabBanner">中国创新创造标杆的</p><p class="tabBanner-down">佛山企业品牌</p></a>
-            <a href="#" style="width:34%;"><p class="tabBanner">中国社会责任典范的</p><p class="tabBanner-down">佛山企业品牌</p></a>
-            <a href="#" style="width:33%;"><p class="tabBanner">最具成长性的</p><p class="tabBanner-down">佛山企业品牌</p></a>
-        </div>
-        <div id="tabs-container" class="swiper-container">
-            <div class="swiper-wrapper">              
-                <!-- tab页1 -->
-                <div class="swiper-slide">
-                    <br/>
-                    <ul class="list-group" id="s2-list-list1"></ul>
-                </div>
-                <!-- End of tab页1 -->
-                
-                <!-- tab页2 -->
-                <div class="swiper-slide">
-                    <br/>
-                    <ul class="list-group" id="s2-list-list2"></ul>
-                </div>
-                <!-- End of tab页2 -->
-
-                <!-- tab页3 -->
-                <div class="swiper-slide">
-                    <br/>
-                    <ul class="list-group" id="s2-list-list3"></ul>
-                </div>
-                <!-- End of tab页3 -->
-            </div>
-        </div>
     </div>
 
-    <div id="s2-details-modal1"></div>
+<!--     <div id="s2-details-modal1"></div>
     <div id="s2-details-modal2"></div>
-    <div id="s2-details-modal3"></div>
+    <div id="s2-details-modal3"></div> -->
 
-<!-- modals -->
+    <!-- modals -->
     <div class="modal fade" id="introModal" tabindex="-1" role="dialog" data-backdrop="static">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -146,9 +162,9 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="infobtn" id="voteFinalConfrim" style="color:#188ae2;">确认投票</div>
                 </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+            </div>
+        </div>
+    </div>
 
 
     <div class="modal fade" id="getuserinfomodal" tabindex="-1" role="dialog" data-backdrop="static">
@@ -179,9 +195,9 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="infobtn" id="uploadinfo-final" style="color:#188ae2;">参与抽奖</div>
                 </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="ranks" tabindex="-1" role="dialog" data-backdrop="static">
         <div class="modal-dialog" role="document">
@@ -234,9 +250,9 @@
                 <div class="modal-footer">
                     <div data-dismiss="modal" style="color:#188ae2;">我知道了</div>
                 </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+            </div>
+        </div>
+    </div>
 
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
