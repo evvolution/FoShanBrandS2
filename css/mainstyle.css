@@ -80,7 +80,7 @@ input.fspCheckBox:focus{
 	background-color:#0386cc;
 	background-size:auto 100%;
 	width:100%;
-/*	height:55px;*/
+	border-radius: 8px;
 	overflow:hidden;
 }
 
@@ -88,16 +88,19 @@ input.fspCheckBox:focus{
 	font-weight:normal;
 	text-align:center;
 	float:left;
-/*	line-height:55px;*/
+	border-radius: 8px;
 }
 
 .tabs a.active {
 	background-color:#223a5e;
 }
 
+.tabx{
+	border-radius: 8px;
+}
 
 .progress {
-    height: 12px;
+    height: 10px;
     font-size: 8px;
     width: 90%;
     overflow: hidden;
@@ -111,8 +114,8 @@ input.fspCheckBox:focus{
 }
 
 .progress-bar {
-    font-size: 10px;
-    line-height: 12px;
+    font-size: 8px;
+    line-height: 10px;
     background-color: #ad3333;
 }
 
@@ -121,36 +124,31 @@ input.fspCheckBox:focus{
 
 
 /* 投票列表项  */
-.accordion{
+.list-group{
 	overflow-y: auto; 
 }
 
-.accordion::-webkit-scrollbar{
+.list-group::-webkit-scrollbar{
 	width: 6px;
 }
 
-.accordion::-webkit-scrollbar-thumb{
+.list-group::-webkit-scrollbar-thumb{
 	border-radius: 5px;
 	-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
 	background: rgba(0,0,0,0.2);
 	scrollbar-arrow-color:red
 }
 
-.accordion::-webkit-scrollbar-track{
+.list-group::-webkit-scrollbar-track{
 	background: rgba(0,0,0,0.1);
 }
 
+.list-group-item{
+	height: 55px;
+	border-radius: 8px;
+    margin-bottom: 8px;
+}
 
-.accordion-group{
-	margin-bottom: 2px;
-    border: 1px solid #e5e5e5;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 2px;
-}
-.accordion-heading{
-	height: 30px;
-}
 
 
 
@@ -160,7 +158,7 @@ input.fspCheckBox:focus{
 .floatplugin{
     position: absolute;
     float: left;
-    top: 35px;
+    top: 30px;
     left: 0px;
     color: #fff;
     background-color: #223a5e;

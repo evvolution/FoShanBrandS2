@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="bannnar">
-        <img src="img/title.png" id="pagebannar" class="fspPIC" style="width:85%;">
+        <img src="img/title.png" id="pagebannar" class="fspPIC" style="width:80%;">
     </div>
     <span class="floatplugin" id="showrules">
         投<br/>票<br/>规<br/>则
@@ -23,30 +23,30 @@
         <div class="row">
             <div class="tabs">
                 <a href="#" class="active" style="width:33%;">
-                    <div id="tab1">
+                    <div id="tab1" class="tabx">
                         <img class="fspPIC-tab" src="img/tab1.png"/>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemax="100" style="min-width:5px;width:0%;">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemax="100" style="min-width:8px;width:0%;">
                                 <span id="tab1-state">0</span>
                             </div>
                         </div>
                     </div>
                 </a>
                 <a href="#" style="width:34%;">
-                    <div id="tab2">
+                    <div id="tab2" class="tabx">
                         <img class="fspPIC-tab" src="img/tab2.png"/>
                         <div class="progress" style="margin-top:-2px;">
-                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemax="100" style="min-width:5px;width:0%;">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemax="100" style="min-width:8px;width:0%;">
                                 <span id="tab2-state">0</span>
                             </div>
                         </div>
                     </div>
                 </a>
                 <a href="#" style="width:33%;">
-                    <div id="tab3">
+                    <div id="tab3" class="tabx">
                         <img class="fspPIC-tab" src="img/tab3.png"/>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemax="100" style="min-width:5px;width:0%;">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemax="100" style="min-width:8px;width:0%;">
                                 <span id="tab3-state">0</span>
                             </div>
                         </div>
@@ -57,37 +57,36 @@
                 <div class="swiper-wrapper">              
                     <!-- tab页1 -->
                     <div class="swiper-slide">
-                        <div class="accordion" id="s2List1Accordion1">
-                            <br/>
-                            <!-- <div class="accordion-group" id="s2-list-list1"></div> -->
-                        </div>
+                        <br/>
+                        <ul class="list-group" id="s2List1"></ul>
+                        <div class="btn btn-default col-xs-8" id="confirmVote">投票</div>
                     </div>
                     <!-- End of tab页1 -->
                     
                     <!-- tab页2 -->
                     <div class="swiper-slide">
-                        <div class="accordion" id="s2List2Accordion2">
-                            <br/>
-                            <!-- <div class="accordion-group" id="s2-list-list2"></div> -->
-                        </div>
+                        <br/>
+                        <ul class="list-group" id="s2List2"></ul>
+                        <div class="btn btn-default col-xs-8" id="confirmVote">投票</div>
                     </div>
                     <!-- End of tab页2 -->
 
                     <!-- tab页3 -->
                     <div class="swiper-slide">
-                        <div class="accordion" id="s2List3Accordion3">
-                            <br/>
-                            <!-- <div class="accordion-group" id="s2-list-list3"></div> -->
-                        </div>
+                        <br/>
+                        <ul class="list-group" id="s2List3"></ul>
+                        <div class="btn btn-default col-xs-8" id="confirmVote">投票</div>
                     </div>
                     <!-- End of tab页3 -->
+                    <!-- <div class="btn btn-default col-xs-8" id="confirmVote">投票</div> -->
                 </div>
+
             </div>
         </div>
         <div class="row">
             <!-- <div class="col-xs-12"> -->
-            <div class="btn btn-default col-xs-2 col-xs-offset-1" id="showRanks" data-toggle="modal" data-target="#ranks">排名</div>
-            <div class="btn btn-default col-xs-7 col-xs-offset-1" id="confirmVote">投票</div>
+            <!-- <div class="btn btn-default col-xs-2 col-xs-offset-1" id="showRanks" data-toggle="modal" data-target="#ranks">排名</div> -->
+            <!-- <div class="btn btn-default col-xs-8" id="confirmVote">投票</div> -->
             <!-- </div> -->
         </div>
 

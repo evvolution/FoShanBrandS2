@@ -67,21 +67,15 @@ window.onload = function() {
 function setScrollheight(){
 	var availHeight = window.screen.availHeight;
 	var availwidth = window.screen.availwidth;
+	$(".list-group").css("height", availHeight*0.55);
+	$("#tabs-container").css("height", availHeight*0.6);
+	$("#s1l1rank-content").css("height", availHeight*0.4);
+	$("#s1l2rank-content").css("height", availHeight*0.4);
 
 	if(availHeight < 700){
-		$(".accordion").css("height", availHeight*0.48);
-		$("#tabs-container").css("height", availHeight*0.5);
 		$("#introcontent").css("height", availHeight*0.44);
-
-		$("#s1l1rank-content").css("height", availHeight*0.4);
-		$("#s1l2rank-content").css("height", availHeight*0.4);
 	}else if(availHeight > 700){
-		$(".accordion").css("height", availHeight*0.52);
-		$("#tabs-container").css("height", availHeight*0.5);
 		$("#introcontent").css("height", availHeight*0.53);
-
-		$("#s1l1rank-content").css("height", availHeight*0.4);
-		$("#s1l2rank-content").css("height", availHeight*0.4);
 	}
 	
 }
@@ -95,29 +89,30 @@ function get_S2_list(){
 		dataType:"json",
 		success:function(data){
 
-			for (var i=0; i < data.projects.length; i++){
+			for (var i = 0; i < data.projects.length; i++){
 
 				var s2listcontent = "";
 				var s2modalcontent = "";
+				for (var j = 0; j < data.projects[i].length; j++){
+					var head = '<li class="list-group-item">' + j;
+					if(j == data.projects[i].length-1){
+						var tail = '</li><br/><div class="list-group-item btn btn-default confirmVote">投票</div><br/>';
+					}else {
+						var tail = '</li>';
+					}
+					
 
-				for (var j=0; j < data.projects[i].length; j++){
-					var head = '<div class="accordion-group"><div class="accordion-heading">'
-					var title = '<a class="accordion-toggle" data-toggle="collapse" data-parent="#s2List' + (i+1) + 'Accordion' + (i+1) + '" href="#s2list' + (i+1) + 'collapse' + j + '">' + data.projects[i][j].title + '</a></div>'
-					var body = '<div id="s2list' + (i+1) + 'collapse' + j + '" class="accordion-body collapse"><div class="accordion-inner">' + data.projects[i][j].content + '</div></div>'
-					var tail = '</div></div>';
-
-					s2listcontent += (head + title + body + tail);
+					s2listcontent += (head + tail);
 
 /*					var modalhead = '<div data-backdrop="static" class="modal fade" id="s2Info' + data.projects[0][i].id + '" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content">';
 					var modalbody = '<div class="modal-body" style="padding:0;"><div class="form-group" style="text-align:center;"><h4 style="color:#ffe200;">品牌介绍</h4><br/></div><div class="form-group"><div class="s1-details-modalcontent" style="text-align:justify;">' + data.projects[0][i].content + '</div></div></div><div class="modal-footer"><div style="color:#188ae2;" data-dismiss="modal">关闭</div></div>'
 					var modaltail = '</div></div></div>';
 
 					s2modalcontent += (modalhead + modalbody + modaltail);*/
-
 				}
 				
 				//填入到dom
-				$('#s2List' + (i+1) + 'Accordion' + (i+1)).html(s2listcontent);
+				$('#s2List' + (i+1)).html(s2listcontent);
 /*				$('#s2-details-modal' + (i+1)).html(s2modalcontent);*/
 			}
 		},
