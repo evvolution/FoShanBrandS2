@@ -226,7 +226,6 @@ function clearWastedInfo(item){
 }
 
 function voteControl(){
-	alert(1)
 	checkTimes()
 	var enable = currentTimes;
 	if(enable === "can vote"){
