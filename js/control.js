@@ -67,7 +67,7 @@ function setScrollheight(){
 	var availheight = window.screen.availHeight;
 	var availwidth = window.screen.availWidth;
 	console.log(availheight)
-	$(".list-group").css("height", availheight*0.55);
+	$(".list-group").css("height", availheight*0.58);
 	$("#tabs-container").css("height", availheight*0.6);
 
 	$("#s1l1rank-content").css("height", availheight*0.4);
@@ -106,13 +106,13 @@ function get_S2_list(){
 					var order = '<div class="list-item-order">' + (j+1) + '</div>';
 					var pic = '<div class="list-item-picholder"><img class="list-item-picholder-in" src="' + data.projects[i][j].pic_url + '?imageView2/2/w/100/h/80/format/jpg/interlace/1/q/90"/></div>';
 					var headx = '<div class="list-item-titleAndNumHolder">';
-					var title = '<p class="list-item-title">' + data.projects[i][j].title + '</p>';
+					var title = '<p class="list-item-title" data-toggle="modal" data-target="#s2Info' + data.projects[i][j].id + '">' + data.projects[i][j].title + '</p>';
 					var checkbox = '<input onclick=stateControl("s2-list' + (i+1) + '-checkbox","tab' + (i+1) + '-state","s2-list' + (i+1) + '-state") type="checkbox" name="s2-list' + (i+1) + '-checkbox" class="fspCheckBox" value="' + data.projects[i][j].id + '" /></div>';
 					/*console.log(checkbox)*/
 					var tailx = '</div>'
 
 					if(j == data.projects[i].length-1){
-						var tail = '</li><br/><div class="list-group-item btn btn-default confirmVote" onclick=voteControl()>投票</div><br/>';
+						var tail = '</li><br/><div class="list-group-item btn btn-default confirmVote" onclick=voteControl()>投票&nbsp;<span class="glyphicon glyphicon-thumbs-up" style="top:3px;"></span></div><br/>';
 					}else {
 						var tail = '</li>';
 					}
@@ -120,17 +120,18 @@ function get_S2_list(){
 
 					s2listcontent += (head + order + pic + headx + title + Num +  checkbox + tailx + tail);
 					
-
-/*					var modalhead = '<div data-backdrop="static" class="modal fade" id="s2Info' + data.projects[0][i].id + '" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content">';
-					var modalbody = '<div class="modal-body" style="padding:0;"><div class="form-group" style="text-align:center;"><h4 style="color:#ffe200;">品牌介绍</h4><br/></div><div class="form-group"><div class="s1-details-modalcontent" style="text-align:justify;">' + data.projects[0][i].content + '</div></div></div><div class="modal-footer"><div style="color:#188ae2;" data-dismiss="modal">关闭</div></div>'
+					var pics = '<div class="modal-picholder"><img class="modal-picholder-in" src="' + data.projects[i][j].pic_url + '?imageView2/2/w/100/h/80/format/jpg/interlace/1/q/90"/></div>'
+					var modalhead = '<div data-backdrop="static" class="modal fade" id="s2Info' + data.projects[i][j].id + '" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content">';
+					var modalbody1 = '<div class="modal-body" style="padding:0;"><div class="form-group" style="text-align:center;"><div class="brand">' + pics + '</div><h5 style="color:#ffe200;">' + data.projects[i][j].title + '</h5></div><div class="form-group">';
+					var modalbody2 = '<div class="s1-details-modalcontent" style="text-align:justify;">' + data.projects[i][j].content + '</div></div></div><div class="modal-footer"><div style="color:#188ae2;" data-dismiss="modal">关闭</div></div>';
 					var modaltail = '</div></div></div>';
 
-					s2modalcontent += (modalhead + modalbody + modaltail);*/
+					s2modalcontent += (modalhead + modalbody1 + modalbody2 + modaltail);
 				}
 				
 				//填入到dom
 				$('#s2List' + (i+1)).html(s2listcontent);
-/*				$('#s2-details-modal' + (i+1)).html(s2modalcontent);*/
+				$('#s2-details-modal' + (i+1)).html(s2modalcontent);
 			}
 		},
 		error: function(){
@@ -152,32 +153,32 @@ function stateControl(name, num, scroll){
 	var state = checkedItems.length;
 	var stateByPercentform = 'width:' + state*10 + '%';
 	if(state === 10){
-		$('#' + num).html('上限');
+		$('#' + num).html('已达投票上限');
 		$('input[name=' + name + ']:not(:checked)').each(function(){
 			$(this).attr('disabled',true);
 		});
-		var colorWarning = ';background-color:yellow;color:#223a5e;';
+		var colorWarning = ';background-color:green;';
 		$('#' + scroll).attr("style", stateByPercentform + colorWarning);
 	}else if((state < 5) && (state > 0)){
 		$('#' + num).html(state);
 		$('input[name=' + name + ']').each(function(){
 			$(this).attr('disabled',false);
 		});
-		var colorWarning = ';background-color:"#ad3333;color:#ededed;"';
+		var colorWarning = ';background-color:"#de5312;';
 		$('#' + scroll).attr("style", stateByPercentform + colorWarning);
 	}else if(state === 0){
 		$('#' + num).html(state);
 		$('input[name=' + name + ']').each(function(){
 			$(this).attr('disabled',false);
 		});
-		var minlength = ';min-width:8px;width:0%;color:#ededed;';
+		var minlength = ';min-width:8px;width:0%;';
 		$('#' + scroll).attr("style", stateByPercentform + minlength);
 	}else if((state < 10) && (state > 4)){
 		$('#' + num).html(state + '/10');
 		$('input[name=' + name + ']').each(function(){
 			$(this).attr('disabled',false);
 		});
-		var colorSuccess = ';background-color:green;color:#ededed;';
+		var colorSuccess = ';background-color:green;';
 		$('#' + scroll).attr("style", stateByPercentform + colorSuccess);
 	}else if(state > 10){
 		alert("当前榜单您最多选择10项");//这个不可能触发的

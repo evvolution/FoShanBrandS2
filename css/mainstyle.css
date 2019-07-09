@@ -108,7 +108,7 @@ input.fspCheckBox:focus{
     width: 90%;
     overflow: hidden;
     background-color: rgba(212, 212, 212, 0.42);
-    border-radius: 2px;
+    border-radius: 5px;
     -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     margin-left: 5px;
@@ -119,7 +119,7 @@ input.fspCheckBox:focus{
 .progress-bar {
     font-size: 8px;
     line-height: 10px;
-    background-color: #ad3333;
+    background-color: #de5312;
 }
 
 /***************End of tabs************/
@@ -212,6 +212,16 @@ input.fspCheckBox:focus{
 	font-size: 20px;
     width: 80%;
     left: 35px;
+    background-color: #de5312;
+    color: #ededed;
+}
+
+.confirmVote:hover{
+	font-size: 20px;
+    width: 80%;
+    left: 35px;
+    background-color: #8d360d;
+    color: #ededed;
 }
 /*************End of 投票列表项************/
 
@@ -239,7 +249,7 @@ input.fspCheckBox:focus{
     float: left;
     left: 10px;
     top: 44px;
-    background-color: #b92c28;
+    background-color: #de5312;
 }
 
 #showRules{
@@ -259,7 +269,21 @@ input.fspCheckBox:focus{
 
 /*************End of 悬浮挂件************/
 
-/*costume modal*/
+
+/***********costume modal****************/
+
+.modal-picholder{
+	display: inline-block;
+	width: 55px;
+	height: 44px;
+    position: relative;
+}
+
+.modal-picholder-in{
+	height: 100%;
+	width: 100%;
+}
+
 .modal-dialog{
 	margin-top: 10%;
 	border: 0;
