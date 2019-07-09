@@ -216,7 +216,7 @@ input.fspCheckBox:focus{
     color: #ededed;
 }
 
-.confirmVote:hover{
+.confirmVote:hover,.confirmVote:focus{
 	font-size: 20px;
     width: 80%;
     left: 35px;
