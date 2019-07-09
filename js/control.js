@@ -373,7 +373,7 @@ function finalVoteControl(){
 		var s2l3checked = [];
 		var vote_list = [];
 		$('input[name=s2-list1-checkbox]:checked').each(function(i){
-			s1l1checked[i] = $(this).val();
+			s2l1checked[i] = $(this).val();
 		});
 
 		$('input[name=s2-list2-checkbox]:checked').each(function(i){
@@ -383,7 +383,10 @@ function finalVoteControl(){
 		$('input[name=s2-list3-checkbox]:checked').each(function(i){
 			s2l3checked[i] = $(this).val();
 		});
-		vote_list = s1l1checked.concat(s1l2checked);//用户选择
+
+		vote_list = s2l2checked.concat(s2l2checked);//用户选择
+		vote_list = s2l3checked.concat(vote_list);
+		console.log(vote_list);
 		var url = netlink + '/exam/add_vote_pro/?exam_id=10,11,12&openid=' + usropenid + '&item_id=' + item_id + '&code=' + code + '&vote_list=' + vote_list;
 		$.ajax({
 			type:"get",
@@ -467,24 +470,32 @@ function getRanks(){
 	$.ajax({
 		type:"get",
 		async:false,
-		url:netlink + '/exam/get_vote_rank/?exam_id=8,9&top=10',
+		url:netlink + '/exam/get_vote_rank/?exam_id=10,11,12&top=10',
 		dataType:"json",
 		success:function(data){
-			var s1l1rank = "";
-			var s1l2rank = "";
+			var s2l1rank = "";
+			var s2l2rank = "";
+			var s2l3rank = "";
 			var line1 = '';
 			var line2 = '';
+			var line3 = '';
 			for(var i=0; i < data[0].votes.length; i++){
 				line1 = '<tr><td width="10%"></td><td width="90%">' + (i+1) + '&nbsp;&nbsp;' + data[0].votes[i].title + '</td>';
-				s1l1rank += line1;
+				s2l1rank += line1;
 			}
-			$("#s1l2rank").html(s1l1rank);
+			$("#s2l1rank").html(s2l1rank);
 
 			for(var i=0; i < data[1].votes.length; i++){
 				line2 = '<tr><td width="10%"></td><td width="90%">' + (i+1) + '&nbsp;&nbsp;' + data[1].votes[i].title + '</td>';
-				s1l2rank += line2;
+				s2l2rank += line2;
 			}
-			$("#s1l1rank").html(s1l2rank);
+			$("#s2l2rank").html(s2l2rank);
+
+			for(var i=0; i < data[2].votes.length; i++){
+				line3 = '<tr><td width="10%"></td><td width="90%">' + (i+1) + '&nbsp;&nbsp;' + data[2].votes[i].title + '</td>';
+				s2l3rank += line3;
+			}
+			$("#s2l3rank").html(s2l3rank);
 		},
 		error: function(){
 		    console.log('很抱歉，获取排行榜失败，请稍候再试！');

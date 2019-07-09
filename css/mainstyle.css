@@ -364,3 +364,13 @@ input.fspCheckBox:focus{
 .carousel-indicators {
     bottom: -30px;
 }
+
+.carousel-control.left{
+	left: -20px;
+    background: transparent;
+}
+
+.carousel-control.right{
+	right: -20px;
+    background: transparent;
+}
