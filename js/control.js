@@ -85,9 +85,6 @@ function setScrollheight(){
 		$(".list-group").css("height", availheight*0.7);
 		$("#tabs-container").css("height", availheight*0.78);
 	}
-	}
-
-	
 }
 
 function get_S2_list(){
