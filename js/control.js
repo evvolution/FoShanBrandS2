@@ -385,7 +385,7 @@ function finalVoteControl(){
 			s2l3checked[i] = $(this).val();
 		});
 
-		vote_list = s2l2checked.concat(s2l2checked);//用户选择
+		vote_list = s2l1checked.concat(s2l2checked);//用户选择
 		vote_list = s2l3checked.concat(vote_list);
 		console.log(vote_list);
 		var url = netlink + '/exam/add_vote_pro/?exam_id=10,11,12&openid=' + usropenid + '&item_id=' + item_id + '&code=' + code + '&vote_list=' + vote_list;
