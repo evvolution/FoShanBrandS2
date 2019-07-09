@@ -19,8 +19,6 @@ $(document).ready(function(){
 	checkTimes();
 	//进度条控制
 	stateControl();
-	//投票控制
-	voteControl();
 	//基本按钮控制
 	bindBasicBTNs();
 	//个人信息提交
@@ -68,7 +66,7 @@ window.onload = function() {
 function setScrollheight(){
 	var availheight = window.screen.availHeight;
 	var availwidth = window.screen.availWidth;
-
+	console.log(availheight)
 	$(".list-group").css("height", availheight*0.55);
 	$("#tabs-container").css("height", availheight*0.6);
 
@@ -77,13 +75,13 @@ function setScrollheight(){
 
 	if(availheight < 700){
 		$("#introcontent").css("height", availheight*0.42);
-	}else if(availheight > 700){
+	}else if(availheight > 670){
 		$("#introcontent").css("height", availheight*0.50);
+		$(".list-group").css("height", availheight*0.7);
+		$("#tabs-container").css("height", availheight*0.78);
 	}
 	
 }
-//var x = '?imageView2/2/w/100/h/80/format/jpg/interlace/1/q/90"'
-//var xx = '<input onclick=stateControl("s2-list' + (j+1) + '-checkbox","s2-list2-num","s2-list2-state") type="checkbox" name="s2-list' + (j+1) + '-checkbox" class="fspCheckBox" value="' + data.projects[0][i].id + '"/ >'
 
 function get_S2_list(){
 	$.ajax({
@@ -97,7 +95,7 @@ function get_S2_list(){
 				var s2listcontent = "";
 				var s2modalcontent = "";
 				for (var j = 0; j < data.projects[i].length; j++){
-					if((((i == 0) && ((j == 19) || (j == 45)))) || ((i == 1) && ((j == 25) || (j == 31) || (j == 33))) || ((i == 2) && ((j == 21) || (j == 34)))){
+					if((((i == 0) && ((j == 19) || (j == 45)))) || ((i == 1) && ((j == 9) || (j == 21) || (j == 25) || (j == 31) || (j == 33) || (j == 36) || (j == 50))) || ((i == 2) && ((j == 21) || (j == 34)))){
 						var head = '<li class="list-group-item" style="height:75px">';
 						var Num = '<p class="list-item-NumX">当前票数：' + data.projects[i][j].vote_count + '</p>';
 					}else{
@@ -109,15 +107,19 @@ function get_S2_list(){
 					var pic = '<div class="list-item-picholder"><img class="list-item-picholder-in" src="' + data.projects[i][j].pic_url + '?imageView2/2/w/100/h/80/format/jpg/interlace/1/q/90"/></div>';
 					var headx = '<div class="list-item-titleAndNumHolder">';
 					var title = '<p class="list-item-title">' + data.projects[i][j].title + '</p>';
+					var checkbox = '<input onclick=stateControl("s2-list' + (i+1) + '-checkbox","tab' + (i+1) + '-state","s2-list' + (i+1) + '-state") type="checkbox" name="s2-list' + (i+1) + '-checkbox" class="fspCheckBox" value="' + data.projects[i][j].id + '" /></div>';
+					/*console.log(checkbox)*/
 					var tailx = '</div>'
+
 					if(j == data.projects[i].length-1){
-						var tail = '</li><br/><div class="list-group-item btn btn-default confirmVote">投票</div><br/>';
+						var tail = '</li><br/><div class="list-group-item btn btn-default confirmVote" onclick=voteControl()>投票</div><br/>';
 					}else {
 						var tail = '</li>';
 					}
 					
 
-					s2listcontent += (head + order + pic + headx + title + Num + tailx + tail);
+					s2listcontent += (head + order + pic + headx + title + Num +  checkbox + tailx + tail);
+					
 
 /*					var modalhead = '<div data-backdrop="static" class="modal fade" id="s2Info' + data.projects[0][i].id + '" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content">';
 					var modalbody = '<div class="modal-body" style="padding:0;"><div class="form-group" style="text-align:center;"><h4 style="color:#ffe200;">品牌介绍</h4><br/></div><div class="form-group"><div class="s1-details-modalcontent" style="text-align:justify;">' + data.projects[0][i].content + '</div></div></div><div class="modal-footer"><div style="color:#188ae2;" data-dismiss="modal">关闭</div></div>'
@@ -148,27 +150,39 @@ function stateControl(name, num, scroll){
 	var checkedItems = $('input[name=' + name + ']:checked');
 	var uncheckedItems = $('input[name=' + name + ']:not(:checked)');
 	var state = checkedItems.length;
+	var stateByPercentform = 'width:' + state*10 + '%';
 	if(state === 10){
-		$('#' + num).html('<span style="color:green">上限</span>');
+		$('#' + num).html('上限');
 		$('input[name=' + name + ']:not(:checked)').each(function(){
 			$(this).attr('disabled',true);
 		});
-	}else if((state < 5) && ((state > 0) || (state === 0))){
-		$('#' + num).html('<span style="color:#ee3434">' + state + '</span>/10');
+		var colorWarning = ';background-color:yellow;color:#223a5e;';
+		$('#' + scroll).attr("style", stateByPercentform + colorWarning);
+	}else if((state < 5) && (state > 0)){
+		$('#' + num).html(state);
 		$('input[name=' + name + ']').each(function(){
 			$(this).attr('disabled',false);
 		});
+		var colorWarning = ';background-color:"#ad3333;color:#ededed;"';
+		$('#' + scroll).attr("style", stateByPercentform + colorWarning);
+	}else if(state === 0){
+		$('#' + num).html(state);
+		$('input[name=' + name + ']').each(function(){
+			$(this).attr('disabled',false);
+		});
+		var minlength = ';min-width:8px;width:0%;color:#ededed;';
+		$('#' + scroll).attr("style", stateByPercentform + minlength);
 	}else if((state < 10) && (state > 4)){
-		$('#' + num).html('<span style="color:green">' + state + '</span>/10');
+		$('#' + num).html(state + '/10');
 		$('input[name=' + name + ']').each(function(){
 			$(this).attr('disabled',false);
 		});
+		var colorSuccess = ';background-color:green;color:#ededed;';
+		$('#' + scroll).attr("style", stateByPercentform + colorSuccess);
 	}else if(state > 10){
 		alert("当前榜单您最多选择10项");//这个不可能触发的
 		return;
 	}
-	var stateByPercentform = 'width:' + state*10 + '%';
-	$('#' + scroll).attr("style", stateByPercentform);
 }
 
 
@@ -206,43 +220,33 @@ function bindBasicBTNs(){
 	});
 }
 
-function clearChosen(){
-	$("#s1-list1-state").attr("style", 'width:0%');
-	$("#s1-list2-state").attr("style", 'width:0%');
-	$("#s1-list1-num").html("0/10");
-	$("#s1-list2-num").html("0/10");
-}
-
-
 /*  投票和信息登记的取消按钮，取消时清空已经填入的内容 */
 function clearWastedInfo(item){
 	$('#' + item).val("");
 }
 
 function voteControl(){
-	$("#confirmVote").click(function(){
-		checkTimes()
-		var enable = currentTimes;
-		// console.log(enable)
-		if(enable === "can vote"){
-			var s1l1num = $('input[name=s1-list1-checkbox]:checked').length;
-			var s1l2num = $('input[name=s1-list2-checkbox]:checked').length;
-			if((s1l1num < 5) || (s1l2num < 5)){
-				alert("您还未完成投票，每个榜单至少需要选择5项");
-				return;
-			}else{
-				getCodePic();
-				$('#votemodal').modal();
-			}
-		}else if(enable === "cannot vote"){
-			alert("当日投票次数已达上限，请明天再来");
+	alert(1)
+	checkTimes()
+	var enable = currentTimes;
+	if(enable === "can vote"){
+		var s2l1num = $('input[name=s2-list1-checkbox]:checked').length;
+		var s2l2num = $('input[name=s2-list2-checkbox]:checked').length;
+		var s2l3num = $('input[name=s2-list3-checkbox]:checked').length;
+		if((s2l1num < 5) || (s2l2num < 5) || (s2l3num < 5)){
+			alert("您还未完成投票，每个榜单至少需要选择5项");
 			return;
 		}else{
-			alert("当前服务器忙，请重试voteControl");
-			return;
+			getCodePic();
+			$('#votemodal').modal();
 		}
-
-	});
+	}else if(enable === "cannot vote"){
+		alert("当日投票次数已达上限，请明天再来");
+		return;
+	}else{
+		alert("当前服务器忙，请重试voteControl");
+		return;
+	}
 }
 
 function getCodePic(){

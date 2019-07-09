@@ -20,8 +20,8 @@ body{
 
 input.fspCheckBox{
 	-webkit-appearance: none;
-    width: 17px!important;
-    height: 17px!important;
+    width: 18px!important;
+    height: 18px!important;
     display: inline-block;
     margin: -3px 5px 0 0 !important;
     cursor: pointer;
@@ -29,6 +29,10 @@ input.fspCheckBox{
     border-radius: 0px;
     background: url(../img/unchecked.png) no-repeat;
     outline: none;
+    position: absolute;
+    float: right;
+    top: 25px;
+    right: 15px;
 }
 
 input.fspCheckBox:checked {
@@ -152,13 +156,13 @@ input.fspCheckBox:focus{
 .list-item-order{
 	width: 20px;
     height: 20px;
-    border: 2px solid #223a5e;
+    border: 0px solid #223a5e;
     border-radius: 50%;
     padding: 1px 0px;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     position: absolute;
-    top: 2px;
+    top: 18px;
     left: 2px;
     color: #223a5e;
     z-index: 888;
@@ -169,6 +173,7 @@ input.fspCheckBox:focus{
 	height: 40px;
     position: absolute;
     top: 7px;
+    left: 25px;
 }
 
 .list-item-picholder-in{
@@ -183,21 +188,23 @@ input.fspCheckBox:focus{
     font-weight: 600;
     z-index: 500;
     position: absolute;
-    left: 68px;
-    width: 240px;
+    left: 80px;
+    width: 210px;
 }
 
 .list-item-Num{
 	display: block;
     position: absolute;
-    left: 68px;
+    font-weight: 400;
+    left: 80px;
     top: 25px;
 }
 
 .list-item-NumX{
 	display: block;
     position: absolute;
-    left: 68px;
+    font-weight: 400;
+    left: 80px;
     top: 50px;
 }
 
