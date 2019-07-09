@@ -70,8 +70,9 @@ function setScrollheight(){
 	$(".list-group").css("height", availheight*0.58);
 	$("#tabs-container").css("height", availheight*0.6);
 
-	$("#s1l1rank-content").css("height", availheight*0.4);
-	$("#s1l2rank-content").css("height", availheight*0.4);
+	$("#s2l1rank-content").css("height", availheight*0.4);
+	$("#s2l2rank-content").css("height", availheight*0.4);
+	$("#s2l3rank-content").css("height", availheight*0.4);
 
 	if(availheight < 700){
 		$("#introcontent").css("height", availheight*0.42);
@@ -473,29 +474,23 @@ function getRanks(){
 		url:netlink + '/exam/get_vote_rank/?exam_id=10,11,12&top=10',
 		dataType:"json",
 		success:function(data){
-			var s2l1rank = "";
-			var s2l2rank = "";
-			var s2l3rank = "";
-			var line1 = '';
-			var line2 = '';
-			var line3 = '';
-			for(var i=0; i < data[0].votes.length; i++){
-				line1 = '<tr><td width="10%"></td><td width="90%">' + (i+1) + '&nbsp;&nbsp;' + data[0].votes[i].title + '</td>';
-				s2l1rank += line1;
+			for(var p = 0; p < data.length; p++){
+				var s2lxrank = "";
+				var line = '';
+				for(var i = 0; i < data[p].votes.length; i++){
+					if(i == 0){
+						line = '<tr><td class="rankNum" width="10%"><span><img class="rankAwards" src="img/1.png"/></span></td><td width="90%" class="rankTitle">&nbsp;' + data[p].votes[i].title + '</td>';
+					}else if(i == 1){
+						line = '<tr><td class="rankNum" width="10%"><span><img class="rankAwards" src="img/2.png"/></span></td><td width="90%" class="rankTitle">&nbsp;' + data[p].votes[i].title + '</td>';
+					}else if(i == 2){
+						line = '<tr><td class="rankNum" width="10%"><span><img class="rankAwards" src="img/3.png"/></span></td><td width="90%" class="rankTitle">&nbsp;' + data[p].votes[i].title + '</td>';
+					}else{
+						line = '<tr><td class="rankNum" width="10%">' + (i+1) + '</td><td width="90%" class="rankTitle">&nbsp;' + data[p].votes[i].title + '</td>';
+					}
+					s2lxrank += line;
+				}
+				$('#s2l' + (p+1) + 'rank').html(s2lxrank);
 			}
-			$("#s2l1rank").html(s2l1rank);
-
-			for(var i=0; i < data[1].votes.length; i++){
-				line2 = '<tr><td width="10%"></td><td width="90%">' + (i+1) + '&nbsp;&nbsp;' + data[1].votes[i].title + '</td>';
-				s2l2rank += line2;
-			}
-			$("#s2l2rank").html(s2l2rank);
-
-			for(var i=0; i < data[2].votes.length; i++){
-				line3 = '<tr><td width="10%"></td><td width="90%">' + (i+1) + '&nbsp;&nbsp;' + data[2].votes[i].title + '</td>';
-				s2l3rank += line3;
-			}
-			$("#s2l3rank").html(s2l3rank);
 		},
 		error: function(){
 		    console.log('很抱歉，获取排行榜失败，请稍候再试！');

@@ -20,8 +20,8 @@ body{
 
 input.fspCheckBox{
 	-webkit-appearance: none;
-    width: 18px!important;
-    height: 18px!important;
+    width: 21px!important;
+    height: 21px!important;
     display: inline-block;
     margin: -3px 5px 0 0 !important;
     cursor: pointer;
@@ -31,7 +31,7 @@ input.fspCheckBox{
     outline: none;
     position: absolute;
     float: right;
-    top: 25px;
+    top: 20px;
     right: 15px;
 }
 
@@ -351,16 +351,30 @@ input.fspCheckBox:focus{
 	text-align: center ! important;
 }
 
-#s1l1rank-content,#s1l2rank-content{
+.rankNum{
+	text-align: center ! important;
+}
+
+.rankTitle{
+	color: #06acff;
+}
+
+.rankAwards{
+	height: 28px;
+	width: 25px;
+}
+
+.table>tr{
+	height: 32px;
+}
+
+#s2l1rank-content,#s2l2rank-content,#s2l3rank-content{
 	overflow-y: auto; 
 }
 
-.fspPIC-x-c{
-	width: 10px;
-	height: 28px;
-}
 
 
+/***********轮播排行榜样式************/
 .carousel-indicators {
     bottom: -30px;
 }
@@ -373,4 +387,12 @@ input.fspCheckBox:focus{
 .carousel-control.right{
 	right: -20px;
     background: transparent;
+}
+
+.carousel-indicators li.active{
+	background-color: #de5312;
+	border: 1px solid #de5312;
+}
+.carousel-indicators li{
+	border: 1px solid #de5312;
 }
