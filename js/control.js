@@ -6,7 +6,7 @@
 
 var currentTimes = "";
 var successFlag = "";
-var netlink = 'http://fs.foshanplus.com:8082';
+var netlink = 'http://back.foshanplus.com:8089';
 
 
 $(document).ready(function(){
@@ -66,7 +66,7 @@ window.onload = function() {
 function setScrollheight(){
 	var availheight = window.screen.availHeight;
 	var availwidth = window.screen.availWidth;
-	console.log(availheight)
+
 	$(".list-group").css("height", availheight*0.58);
 	$("#tabs-container").css("height", availheight*0.6);
 
@@ -122,7 +122,7 @@ function get_S2_list(){
 					
 					var pics = '<div class="modal-picholder"><img class="modal-picholder-in" src="' + data.projects[i][j].pic_url + '?imageView2/2/w/100/h/80/format/jpg/interlace/1/q/90"/></div>'
 					var modalhead = '<div data-backdrop="static" class="modal fade" id="s2Info' + data.projects[i][j].id + '" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content">';
-					var modalbody1 = '<div class="modal-body" style="padding:0;"><div class="form-group" style="text-align:center;"><div class="brand">' + pics + '</div><h5 style="color:#ffe200;">' + data.projects[i][j].title + '</h5></div><div class="form-group">';
+					var modalbody1 = '<div class="modal-body" style="padding:0;"><div class="form-group" style="text-align:center;"><div class="brand">' + pics + '</div><h4 style="color:#ffe200;">' + data.projects[i][j].title + '</h4></div><div class="form-group">';
 					var modalbody2 = '<div class="s1-details-modalcontent" style="text-align:justify;">' + data.projects[i][j].content + '</div></div></div><div class="modal-footer"><div style="color:#188ae2;" data-dismiss="modal">关闭</div></div>';
 					var modaltail = '</div></div></div>';
 
@@ -274,7 +274,7 @@ function checkTimes(){
 	$.ajax({
 		type:"get",
 		async:true,
-		url: netlink + '/examlog/?exam=8&created_gte=' + currrent + '&openid=' + usropenid,
+		url: netlink + '/examlog/?exam=10&created_gte=' + currrent + '&openid=' + usropenid,
 		dataType:"json",
 		success:function(data){
 			var times = data.results.length;
@@ -348,7 +348,7 @@ function checkSigned(){
 			}else{
 				/* 当用户完成个人信息填写就不做弹出的操作了 */
 				successFlag = 'userSigned';
-				window.location.href = 'http://fs.foshanplus.com:8082/static/FoShanBrandS1/index.html?openid=' + usropenid;
+				window.location.href = 'http://back.foshanplus.com:8089/static/FoShanBrandS2/index.html?openid=' + usropenid;
 			}
 		},
 		error: function(){
@@ -368,17 +368,23 @@ function finalVoteControl(){
 			return;
 		}
 
-		var s1l1checked = [];
-		var s1l2checked = [];
+		var s2l1checked = [];
+		var s2l2checked = [];
+		var s2l3checked = [];
 		var vote_list = [];
-		$('input[name=s1-list1-checkbox]:checked').each(function(i){
+		$('input[name=s2-list1-checkbox]:checked').each(function(i){
 			s1l1checked[i] = $(this).val();
 		});
-		$('input[name=s1-list2-checkbox]:checked').each(function(i){
-			s1l2checked[i] = $(this).val();
+
+		$('input[name=s2-list2-checkbox]:checked').each(function(i){
+			s2l2checked[i] = $(this).val();
+		});
+
+		$('input[name=s2-list3-checkbox]:checked').each(function(i){
+			s2l3checked[i] = $(this).val();
 		});
 		vote_list = s1l1checked.concat(s1l2checked);//用户选择
-		var url = netlink + '/exam/add_vote_pro/?exam_id=8,9&openid=' + usropenid + '&item_id=' + item_id + '&code=' + code + '&vote_list=' + vote_list;
+		var url = netlink + '/exam/add_vote_pro/?exam_id=10,11,12&openid=' + usropenid + '&item_id=' + item_id + '&code=' + code + '&vote_list=' + vote_list;
 		$.ajax({
 			type:"get",
 			async:false,
@@ -403,7 +409,7 @@ function finalVoteControl(){
 						$("#itemcodeID").val(data.data.captcha.item_id);
 					}else{
 						alert(msg);
-						window.location.href = 'http://fs.foshanplus.com:8082/static/FoShanBrandS1/index.html?openid=' + usropenid;
+						window.location.href = 'http://back.foshanplus.com:8089/static/FoShanBrandS2/index.html?openid=' + usropenid;
 					}
 				}
 				
@@ -420,7 +426,7 @@ function finalVoteControl(){
 
 function giveUpAward(){
 	var usropenid = getParam('openid');
-	window.location.href = 'http://fs.foshanplus.com:8082/static/FoShanBrandS1/index.html?openid=' + usropenid;
+	window.location.href = 'http://back.foshanplus.com:8089/static/FoShanBrandS2/index.html?openid=' + usropenid;
 }
 
 
@@ -447,7 +453,7 @@ function signIn(){
 /*		dataType:"json",*/
 		success:function(data){
 			alert("参与成功！请等待开奖");
-			window.location.href = 'http://fs.foshanplus.com:8082/static/FoShanBrandS1/index.html?openid=' + usropenid;
+			window.location.href = 'http://back.foshanplus.com:8089/static/FoShanBrandS2/index.html?openid=' + usropenid;
 		},
 		error: function(){
 		    console.log('很抱歉，提交用户信息错误，请稍候再试！');

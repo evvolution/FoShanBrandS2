@@ -196,16 +196,18 @@ input.fspCheckBox:focus{
 	display: block;
     position: absolute;
     font-weight: 400;
+    font-size: 12px;
     left: 80px;
-    top: 25px;
+    top: 27px;
 }
 
 .list-item-NumX{
 	display: block;
     position: absolute;
     font-weight: 400;
+    font-size: 12px;
     left: 80px;
-    top: 50px;
+    top: 52px;
 }
 
 .confirmVote{
@@ -305,8 +307,14 @@ input.fspCheckBox:focus{
 	overflow-y: auto;
 	outline: none;
 }
+
 .introdetail{
 	color: #ededed;
+	text-align: justify;
+}
+
+.introheader{
+	color: #de5312;
 }
 
 .modal-footer{
