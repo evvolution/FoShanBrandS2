@@ -141,7 +141,6 @@ function get_S2_list(){
 	  							case 42:
 	  							case 44:
 	  							case 49:
-	  							case 51:
 	  								var head = '<li class="list-group-item" style="height:75px">';
 									var Num = '<p class="list-item-NumX">当前票数：' + data.projects[i][j].vote_count + '</p>';
 									break;
