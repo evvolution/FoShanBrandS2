@@ -75,7 +75,7 @@ function setScrollheight(){
 	$("#tabs-container").css("height", availheight*0.61);
 
 	//默认投票区域外层容器区域为屏幕可视高度的0.4
-	$("#s2l1rank-content,s2l2rank-content,s2l3rank-content").css("height", availheight*0.4);
+	$("#s2l1rank-content,#s2l2rank-content,#s2l3rank-content").css("height", availheight*0.4);
 
 	if(availheight < 700){
 		//ip6
@@ -531,13 +531,13 @@ function getRanks(){
 				var line = '';
 				for(var i = 0; i < data[p].votes.length; i++){
 					if(i == 0){
-						line = '<tr><td class="rankNum" width="10%"><span><img class="rankAwards" src="img/1.png"/></span></td><td width="90%" class="rankTitle">&nbsp;' + data[p].votes[i].title + '</td>';
+						line = '<tr><td class="rankNum" width="14%"><span><img class="rankAwards" src="img/1.png"/></span></td><td width="86%" class="rankTitle">&nbsp;' + data[p].votes[i].title + '</td>';
 					}else if(i == 1){
-						line = '<tr><td class="rankNum" width="10%"><span><img class="rankAwards" src="img/2.png"/></span></td><td width="90%" class="rankTitle">&nbsp;' + data[p].votes[i].title + '</td>';
+						line = '<tr><td class="rankNum" width="14%"><span><img class="rankAwards" src="img/2.png"/></span></td><td width="86%" class="rankTitle">&nbsp;' + data[p].votes[i].title + '</td>';
 					}else if(i == 2){
-						line = '<tr><td class="rankNum" width="10%"><span><img class="rankAwards" src="img/3.png"/></span></td><td width="90%" class="rankTitle">&nbsp;' + data[p].votes[i].title + '</td>';
+						line = '<tr><td class="rankNum" width="14%"><span><img class="rankAwards" src="img/3.png"/></span></td><td width="86%" class="rankTitle">&nbsp;' + data[p].votes[i].title + '</td>';
 					}else{
-						line = '<tr><td class="rankNum" width="10%">' + (i+1) + '</td><td width="90%" class="rankTitle">&nbsp;' + data[p].votes[i].title + '</td>';
+						line = '<tr><td class="rankNum" width="14%">' + (i+1) + '</td><td width="86%" class="rankTitle">&nbsp;' + data[p].votes[i].title + '</td>';
 					}
 					s2lxrank += line;
 				}
