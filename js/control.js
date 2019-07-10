@@ -112,7 +112,6 @@ function get_S2_list(){
 					var headx = '<div class="list-item-titleAndNumHolder">';
 					var title = '<p class="list-item-title" data-toggle="modal" data-target="#s2Info' + data.projects[i][j].id + '">' + data.projects[i][j].title + '</p>';
 					var checkbox = '<input onclick=stateControl("s2-list' + (i+1) + '-checkbox","tab' + (i+1) + '-state","s2-list' + (i+1) + '-state") type="checkbox" name="s2-list' + (i+1) + '-checkbox" class="fspCheckBox" value="' + data.projects[i][j].id + '" /></div>';
-					/*console.log(checkbox)*/
 					var tailx = '</div>'
 
 					if(j == data.projects[i].length-1){
@@ -121,12 +120,11 @@ function get_S2_list(){
 						var tail = '</li>';
 					}
 					
-
 					s2listcontent += (head + order + pic + headx + title + Num +  checkbox + tailx + tail);
 					
 					var pics = '<div class="modal-picholder"><img class="modal-picholder-in" src="' + data.projects[i][j].pic_url + '?imageView2/2/w/100/h/80/format/jpg/interlace/1/q/90"/></div>'
 					var modalhead = '<div data-backdrop="static" class="modal fade" id="s2Info' + data.projects[i][j].id + '" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content">';
-					var modalbody1 = '<div class="modal-body" style="padding:0;"><div class="form-group" style="text-align:center;"><div class="brand">' + pics + '</div><h4 style="color:#ffe200;">' + data.projects[i][j].title + '</h4></div><div class="form-group">';
+					var modalbody1 = '<div class="modal-body" style="padding:0;"><div class="form-group" style="text-align:center;"><div class="brand">' + pics + '</div><h4 style="color:#de5312;">' + data.projects[i][j].title + '</h4></div><div class="form-group">';
 					var modalbody2 = '<div class="s1-details-modalcontent" style="text-align:justify;">' + data.projects[i][j].content + '</div></div></div><div class="modal-footer"><div style="color:#188ae2;" data-dismiss="modal">关闭</div></div>';
 					var modaltail = '</div></div></div>';
 
