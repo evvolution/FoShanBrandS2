@@ -69,10 +69,10 @@ function setScrollheight(){
 	var availwidth = window.screen.availWidth;
 
 	//默认投票区域带滚动条的区域为屏幕可视高度的0.58
-	$(".list-group").css("height", availheight*0.58);
+	$(".list-group").css("height", availheight*0.51);
 
 	//默认投票区域外层容器区域为屏幕可视高度的0.6
-	$("#tabs-container").css("height", availheight*0.61);
+	$("#tabs-container").css("height", availheight*0.55);
 
 	//默认投票区域外层容器区域为屏幕可视高度的0.4
 	$("#s2l1rank-content,#s2l2rank-content,#s2l3rank-content").css("height", availheight*0.4);
@@ -82,12 +82,12 @@ function setScrollheight(){
 		$("#introcontent").css("height", availheight*0.42);
 	}else if((availheight > 670) && (availheight <700)){
 		$("#introcontent").css("height", availheight*0.50);
-		$(".list-group").css("height", availheight*0.65);
-		$("#tabs-container").css("height", availheight*0.78);
+		$(".list-group").css("height", availheight*0.55);
+		$("#tabs-container").css("height", availheight*0.6);
 	}else if(availheight > 700){
 		$("#introcontent").css("height", availheight*0.50);
-		$(".list-group").css("height", availheight*0.7);
-		$("#tabs-container").css("height", availheight*0.78);
+		$(".list-group").css("height", availheight*0.6);
+		$("#tabs-container").css("height", availheight*0.65);
 	}
 }
 
