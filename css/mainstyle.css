@@ -20,8 +20,8 @@ body{
 
 input.fspCheckBox{
 	-webkit-appearance: none;
-    width: 21px!important;
-    height: 21px!important;
+    width: 22px!important;
+    height: 22px!important;
     display: inline-block;
     margin: -3px 5px 0 0 !important;
     cursor: pointer;
@@ -37,6 +37,8 @@ input.fspCheckBox{
 
 input.fspCheckBox:checked {
 	background: url(../img/checked.png) no-repeat;
+    width: 21px!important;
+    height: 21px!important;
 }
 
 input.fspCheckBox:focus{
