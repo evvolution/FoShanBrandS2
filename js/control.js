@@ -11,10 +11,11 @@ var netlink = 'http://back.foshanplus.com:8089';
 
 $(document).ready(function(){
 
-	//设置滚动条控件高度
-	setScrollheight();
+
 	//获取2期榜单内容
 	get_S2_list();
+	//设置滚动条控件高度
+	setScrollheight();
 	//校验当日投票次数
 	checkTimes();
 	//进度条控制
@@ -67,15 +68,17 @@ function setScrollheight(){
 	var availheight = window.screen.availHeight;
 	var availwidth = window.screen.availWidth;
 
-	
+	//默认投票区域带滚动条的区域为屏幕可视高度的0.58
 	$(".list-group").css("height", availheight*0.58);
-	$("#tabs-container").css("height", availheight*0.6);
 
-	$("#s2l1rank-content").css("height", availheight*0.4);
-	$("#s2l2rank-content").css("height", availheight*0.4);
-	$("#s2l3rank-content").css("height", availheight*0.4);
+	//默认投票区域外层容器区域为屏幕可视高度的0.6
+	$("#tabs-container").css("height", availheight*0.61);
+
+	//默认投票区域外层容器区域为屏幕可视高度的0.4
+	$("#s2l1rank-content,s2l2rank-content,s2l3rank-content").css("height", availheight*0.4);
 
 	if(availheight < 700){
+		//ip6
 		$("#introcontent").css("height", availheight*0.42);
 	}else if((availheight > 670) && (availheight <700)){
 		$("#introcontent").css("height", availheight*0.50);
@@ -89,6 +92,7 @@ function setScrollheight(){
 }
 
 function get_S2_list(){
+	var availwidth = window.screen.availWidth;
 	$.ajax({
 		type:"get",
 		url: netlink + "/exam/get_vote/?exam_id=10,11,12&openid=12345",
@@ -100,18 +104,87 @@ function get_S2_list(){
 				var s2listcontent = "";
 				var s2modalcontent = "";
 				for (var j = 0; j < data.projects[i].length; j++){
-					if((((i == 0) && ((j == 19) || (j == 45)))) || ((i == 1) && ((j == 9) || (j == 21) || (j == 25) || (j == 31) || (j == 33) || (j == 36) || (j == 50))) || ((i == 2) && ((j == 21) || (j == 34)))){
-						var head = '<li class="list-group-item" style="height:75px">';
-						var Num = '<p class="list-item-NumX">当前票数：' + data.projects[i][j].vote_count + '</p>';
+					if(availwidth < 350){
+						if(i == 0){
+							switch (j){
+	  							case 11:
+	  							case 17:
+	  							case 19:
+	  							case 21:
+	  							case 40:
+	  							case 45:
+	  							case 55:
+	  							case 56:
+	  							case 58:
+	  							case 60:
+	  							case 65:
+									var head = '<li class="list-group-item" style="height:75px">';
+									var Num = '<p class="list-item-NumX">当前票数：' + data.projects[i][j].vote_count + '</p>';
+									break;
+								default:
+									var head = '<li class="list-group-item">';
+									var Num = '<p class="list-item-Num">当前票数：' + data.projects[i][j].vote_count + '</p>';
+									break;
+							}
+						}else if(i == 1){
+							switch (j){
+								case 1:
+	  							case 6:
+	  							case 9:
+	  							case 21:
+	  							case 25:
+	  							case 28:
+	  							case 31:
+	  							case 32:
+	  							case 33:
+	  							case 36:
+	  							case 42:
+	  							case 44:
+	  							case 49:
+	  							case 51:
+	  								var head = '<li class="list-group-item" style="height:75px">';
+									var Num = '<p class="list-item-NumX">当前票数：' + data.projects[i][j].vote_count + '</p>';
+									break;
+								default:
+									var head = '<li class="list-group-item">';
+									var Num = '<p class="list-item-Num">当前票数：' + data.projects[i][j].vote_count + '</p>';
+									break;
+							}
+						}else if(i == 2){
+							switch (j){
+	  							case 2:
+	  							case 16:
+	  							case 21:
+	  							case 31:
+	  							case 34:
+	  							case 39:
+	  							case 42:
+	  							case 45:
+	  								var head = '<li class="list-group-item" style="height:75px">';
+									var Num = '<p class="list-item-NumX">当前票数：' + data.projects[i][j].vote_count + '</p>';
+									break;
+								default:
+									var head = '<li class="list-group-item">';
+									var Num = '<p class="list-item-Num">当前票数：' + data.projects[i][j].vote_count + '</p>';
+									break;
+	  						}
+						}
+						var title = '<p class="list-item-titleS" data-toggle="modal" data-target="#s2Info' + data.projects[i][j].id + '">' + data.projects[i][j].title + '</p>';
 					}else{
-						var head = '<li class="list-group-item">';
-						var Num = '<p class="list-item-Num">当前票数：' + data.projects[i][j].vote_count + '</p>';
+						if((((i == 0) && ((j == 19) || (j == 45)))) || ((i == 1) && ((j == 9) || (j == 21) || (j == 25) || (j == 31) || (j == 33) || (j == 36) || (j == 50))) || ((i == 2) && ((j == 21) || (j == 34)))){
+							var head = '<li class="list-group-item" style="height:75px">';
+							var Num = '<p class="list-item-NumX">当前票数：' + data.projects[i][j].vote_count + '</p>';
+						}else{
+							var head = '<li class="list-group-item">';
+							var Num = '<p class="list-item-Num">当前票数：' + data.projects[i][j].vote_count + '</p>';
+						}
+						var title = '<p class="list-item-title" data-toggle="modal" data-target="#s2Info' + data.projects[i][j].id + '">' + data.projects[i][j].title + '</p>';
 					}
 					
 					var order = '<div class="list-item-order">' + (j+1) + '</div>';
 					var pic = '<div class="list-item-picholder"><img class="list-item-picholder-in" src="' + data.projects[i][j].pic_url + '?imageView2/2/w/100/h/80/format/jpg/interlace/1/q/90"/></div>';
 					var headx = '<div class="list-item-titleAndNumHolder">';
-					var title = '<p class="list-item-title" data-toggle="modal" data-target="#s2Info' + data.projects[i][j].id + '">' + data.projects[i][j].title + '</p>';
+					/*var title = '<p class="list-item-title" data-toggle="modal" data-target="#s2Info' + data.projects[i][j].id + '">' + data.projects[i][j].title + '</p>';*/
 					var checkbox = '<input onclick=stateControl("s2-list' + (i+1) + '-checkbox","tab' + (i+1) + '-state","s2-list' + (i+1) + '-state") type="checkbox" name="s2-list' + (i+1) + '-checkbox" class="fspCheckBox" value="' + data.projects[i][j].id + '" /></div>';
 					var tailx = '</div>'
 

@@ -194,6 +194,15 @@ input.fspCheckBox:focus{
     width: 210px;
 }
 
+.list-item-titleS{
+    text-align: left;
+    font-weight: 600;
+    z-index: 500;
+    position: absolute;
+    left: 80px;
+    width: 190px;
+}
+
 .list-item-Num{
 	display: block;
     position: absolute;
