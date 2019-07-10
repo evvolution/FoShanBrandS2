@@ -169,7 +169,7 @@ function get_S2_list(){
 						}
 						var title = '<p class="list-item-titleS" data-toggle="modal" data-target="#s2Info' + data.projects[i][j].id + '">' + data.projects[i][j].title + '</p>';
 					}else{
-						if((((i == 0) && ((j == 19) || (j == 45)))) || ((i == 1) && ((j == 9) || (j == 21) || (j == 25) || (j == 31) || (j == 33) || (j == 36) || (j == 49))) || ((i == 2) && ((j == 21) || (j == 34)))){
+						if((((i == 0) && ((j == 20) || (j == 46)))) || ((i == 1) && ((j == 9) || (j == 21) || (j == 25) || (j == 31) || (j == 33) || (j == 36) || (j == 49))) || ((i == 2) && ((j == 21) || (j == 34)))){
 							var head = '<li class="list-group-item" style="height:75px">';
 							var Num = '<p class="list-item-NumX">当前票数：' + data.projects[i][j].vote_count + '</p>';
 						}else{
