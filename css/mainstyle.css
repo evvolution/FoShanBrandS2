@@ -37,8 +37,8 @@ input.fspCheckBox{
 
 input.fspCheckBox:checked {
 	background: url(../img/checked.png) no-repeat;
-    width: 21px!important;
-    height: 21px!important;
+    width: 23px!important;
+    height: 23px!important;
 }
 
 input.fspCheckBox:focus{

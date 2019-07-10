@@ -67,6 +67,7 @@ function setScrollheight(){
 	var availheight = window.screen.availHeight;
 	var availwidth = window.screen.availWidth;
 
+	
 	$(".list-group").css("height", availheight*0.58);
 	$("#tabs-container").css("height", availheight*0.6);
 
