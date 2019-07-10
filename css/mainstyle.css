@@ -32,7 +32,7 @@ input.fspCheckBox{
     position: absolute;
     float: right;
     top: 20px;
-    right: 15px;
+    right: 13px;
 }
 
 input.fspCheckBox:checked {
