@@ -107,17 +107,17 @@ function get_S2_list(){
 					if(availwidth < 350){
 						if(i == 0){
 							switch (j){
-	  							case 11:
-	  							case 17:
-	  							case 19:
-	  							case 21:
-	  							case 40:
-	  							case 45:
-	  							case 55:
+	  							case 12:
+	  							case 18:
+	  							case 20:
+	  							case 22:
+	  							case 41:
+	  							case 46:
 	  							case 56:
-	  							case 58:
-	  							case 60:
-	  							case 65:
+	  							case 57:
+	  							case 59:
+	  							case 61:
+	  							case 66:
 									var head = '<li class="list-group-item" style="height:75px">';
 									var Num = '<p class="list-item-NumX">当前票数：' + data.projects[i][j].vote_count + '</p>';
 									break;
