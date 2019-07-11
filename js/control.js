@@ -151,6 +151,7 @@ function get_S2_list(){
 							}
 						}else if(i == 2){
 							switch (j){
+								case 1:
 	  							case 16:
 	  							case 21:
 	  							case 31:
