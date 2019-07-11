@@ -167,7 +167,7 @@ function get_S2_list(){
 									break;
 	  						}
 						}
-						var title = '<p class="list-item-titleS" data-toggle="modal" data-target="#s2Info' + data.projects[i][j].id + '">' + data.projects[i][j].title + '</p>';
+						var title = '<p class="list-item-titleS">' + data.projects[i][j].title + '</p>';
 					}else{
 						if((((i == 0) && ((j == 20) || (j == 46)))) || ((i == 1) && ((j == 9) || (j == 21) || (j == 25) || (j == 31) || (j == 33) || (j == 36) || (j == 48))) || ((i == 2) && ((j == 21) || (j == 34)))){
 							var head = '<li class="list-group-item" style="height:75px">';
@@ -176,11 +176,11 @@ function get_S2_list(){
 							var head = '<li class="list-group-item">';
 							var Num = '<p class="list-item-Num">当前票数：' + data.projects[i][j].vote_count + '</p>';
 						}
-						var title = '<p class="list-item-title" data-toggle="modal" data-target="#s2Info' + data.projects[i][j].id + '">' + data.projects[i][j].title + '</p>';
+						var title = '<p class="list-item-title">' + data.projects[i][j].title + '</p>';
 					}
 					
 					var order = '<div class="list-item-order">' + (j+1) + '</div>';
-					var pic = '<div class="list-item-picholder"><img class="list-item-picholder-in" src="' + data.projects[i][j].pic_url + '?imageView2/2/w/100/h/80/format/jpg/interlace/1/q/90"/></div>';
+					var pic = '<div class="list-item-picholder" data-toggle="modal" data-target="#s2Info' + data.projects[i][j].id + '"><img class="list-item-picholder-in" src="' + data.projects[i][j].pic_url + '?imageView2/2/w/100/h/80/format/jpg/interlace/1/q/90"/></div>';
 					var headx = '<div class="list-item-titleAndNumHolder">';
 					/*var title = '<p class="list-item-title" data-toggle="modal" data-target="#s2Info' + data.projects[i][j].id + '">' + data.projects[i][j].title + '</p>';*/
 					var checkbox = '<input onclick=stateControl("s2-list' + (i+1) + '-checkbox","tab' + (i+1) + '-state","s2-list' + (i+1) + '-state") type="checkbox" name="s2-list' + (i+1) + '-checkbox" class="fspCheckBox" value="' + data.projects[i][j].id + '" /></div>';
