@@ -18,8 +18,12 @@
         <span class="glyphicon glyphicon-gift"></span>
     </div>
 
+    <div class="btn btn-danger floatitems" id="showInfo" data-toggle="modal" data-target="#warning">
+        郑重<br/>声明
+    </div>
+
     <div class="btn btn-default floatitems" id="showRules" data-toggle="modal" data-target="#introModal">
-        <span class="glyphicon glyphicon-info-sign"></span>
+        投票<br/>规则
     </div>
 
     <div class="btn btn-default floatitems" id="showRanks" data-toggle="modal" data-target="#ranks">
@@ -289,6 +293,23 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="warning" tabindex="-1" role="dialog" data-backdrop="static">
+        <div class="modal-dialog" role="document" style="text-align: center;">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3 style="text-align:center;color:#de5312">声明&nbsp;<span class="glyphicon glyphicon-exclamation-sign" style="top:3px;"></span></h3>
+                    <div id="introcontent" style="padding:4px;border-top:1px solid #ededed;border-bottom:1px solid #ededed;">
+                        <p class="introdetail">第七届“品牌佛山”系列活动组委会并未授权任何社会企业、机构、员工开展“合作投票”、“合作刷票”业务。对于以活动组委会、佛山日报社合作方的名义骚扰参评企业的行为，我们将依法追究侵权者的法律责任。同时，我们将严密监控后台检测数据，对于恶意刷票等违规投票行为，一经查实，将取消该企业的参评资格！</p>
+                    </div>
+                </div>
+                <div class="modal-footer" style="padding:3px">
+                    <div data-dismiss="modal" style="color:#188ae2;">我已经了解上述声明</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>

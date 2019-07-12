@@ -11,7 +11,6 @@ var netlink = 'http://back.foshanplus.com:8089';
 
 $(document).ready(function(){
 
-
 	//获取2期榜单内容
 	get_S2_list();
 	//设置滚动条控件高度
@@ -27,7 +26,9 @@ $(document).ready(function(){
 	//投票控制
 	finalVoteControl();
 	//获取排行榜
-	getRanks()
+	getRanks();
+
+/*	info();*/
 });
 
 
@@ -551,3 +552,20 @@ function getRanks(){
 		}
 	});
 }
+
+/*/*function info(){
+	$.ajax({
+		type:"post",
+		async:false,
+		url:netlink + '/exam/get_vote_rank/?exam_id=10,11,12&top=10',
+		dataType:"json",
+		success:function(data){
+
+		},
+		error: function(){
+		    console.log('很抱歉，获取排行榜失败，请稍候再试！');
+		    alert("当前服务器忙，请重试info");
+		}
+	});
+	$("#warning").modal();
+}*/

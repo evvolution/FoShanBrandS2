@@ -257,13 +257,9 @@ input.fspCheckBox:focus{
 }
 
 #showAwards{
-    height: 45px;
-    width: 45px;
-    font-size: 21px;
-    padding: 11px;
     float: left;
-    left: 10px;
-    top: 44px;
+    left: 15px;
+    top: 60px;
     background-color: #de5312;
 }
 
@@ -272,6 +268,8 @@ input.fspCheckBox:focus{
     right: 15px;
     top: 15px;
     background-color: #223a5e;
+    padding: 6px;
+    font-size: 9px;
 }
 
 #showRanks{
@@ -281,6 +279,14 @@ input.fspCheckBox:focus{
     background-color: #188ae2;
 }
 
+#showInfo{
+    float: left;
+    left: 15px;
+    top: 15px;
+    padding: 6px;
+    font-size: 9px;
+    background-color: #d43f3a;
+}
 
 /*************End of 悬浮挂件************/
 
