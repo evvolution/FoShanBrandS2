@@ -26,7 +26,7 @@ $(document).ready(function(){
 	finalVoteControl();
 	//获取排行榜
 	getRanks();
-	alert("投票活动已结束");
+	$("#noticemodal").modal();
 /*	info();*/
 });
 
